@@ -1,32 +1,35 @@
 let stop = false,
-    size = 20,
-    cols = 0,
-    rows = 0,
-    p;
+  size = 20,
+  cols = 0,
+  rows = 0,
+  p,
+  fr = 69;
 
 function setup() {
-    createCanvas(800, 800);
-    background(255);
-    cols = width / size;
-    rows = height / size;
-    p = new Pattern(cols, rows, size);
-    frameRate(2);
+  let bg = document.getElementById("APP");
+
+  let can = createCanvas(bg.offsetWidth, bg.offsetHeight);
+  can.parent("APP");
+
+  background(0);
+  cols = width / size;
+  rows = height / size;
+  p = new Pattern(cols, rows, size);
+  frameRate(fr);
 }
 
 function draw() {
-    if (stop) {
-        return;
-    }
-    background(255);
-    p.display();
+  if (stop) {
+    return;
+  }
+  background(0);
+  p.display();
 }
 
 function mousePressed() {
-    stop = true;
+  stop = true;
 }
 
 function mouseReleased() {
-    stop = false;
+  stop = false;
 }
-
-
